@@ -1,0 +1,34 @@
+% --- Pin definitions needed for the guide tubes
+
+% --- Pin definitions needed for the guide tubes
+
+% --- Guide tube in water
+
+pin pGT
+fill CRuni  0.60
+water       0.75
+Zircaloy4   0.80
+water
+
+% --- Guide tube in support grid
+
+pin pGTInSteel
+fill CRuni  0.60
+water       0.75
+Zircaloy4   0.80
+water       0.85
+ssteel
+
+/***** Vertical layers (cells) for guide tubes ****/
+
+% --- 3D universe for guide tubes
+%     These cells are part of an universe "c"
+
+cell cGT0 c water                        -sLowerBot
+cell cGT1 c fill pGTInSteel    sLowerBot -sLowerTop
+cell cGT2 c fill pGT           sLowerTop -sUpperBot
+cell cGT3 c fill pGTInSteel    sUpperBot -sUpperTop
+cell cGT4 c fill pGT           sUpperTop
+
+
+

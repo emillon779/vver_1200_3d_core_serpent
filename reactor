@@ -1,0 +1,134 @@
+% --- Research reactor input for Serpent tutorial
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Link additional input files here %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- Link the materials file to this input
+
+include "materials"
+
+% --- Link the reactorpool file to this input
+
+include "reactorpool"
+
+% --- Link the fuelrod file to this input
+
+include "fuelrod"
+
+% --- Link the core file to this input
+include "refl"
+
+% --- Link the core file to this input
+
+include "core"
+% --- Link the emptyposition file to this input
+
+include "emptyposition"
+
+% --- Link the guidetube file to this input
+
+include "guidetube"
+
+% --- Link the controlrod file to this input
+
+include "controlrod"
+
+
+/******************
+ * Run parameters *
+ ******************/
+
+% --- Neutron population: 10000 neutrons per cycle, 100 active / 50 inactive cycles
+set acelib "/home/emil/serpent/xsdata/sss_endfb7u.xsdata"
+set pop 5000 200 20 1.0 1
+% --- XY-plot of reactor, axial midplane
+plot 3 996 904
+plot 2 996 904
+plot 3 996 904   0 -100 100 -100 100
+plot 30 996 904
+plot 31 996 904
+plot 32 996 904
+plot 33 996 904 
+% --- XY-plot of core, axial midplane
+
+plot 3 996 904   0 -30 30 -30 30
+
+% --- XY-plot of core, level of lower grid
+
+plot 3 996 904 -36 -30 30 -30 30
+
+% --- XZ-plot
+
+plot 2 996 904   0 -30 30 -40 40
+
+% --- XZ-plot, level of control rods
+
+plot 2 996 904 7.2 -30 30 -40 40
+
+% --- Mesh plot:
+
+mesh 3 996 904   0 -30 30 -40 40
+mesh 2 996 904   0 -30 30 -40 40
+
+% --- Geometry plots:
+
+plot 30 996 904   0 -30 30 -30 30  % No boundaries
+plot 31 996 904   0 -30 30 -30 30  % Cell boundaries
+plot 32 996 904   0 -30 30 -30 30  % Material boundaries (default)
+plot 33 996 904   0 -30 30 -30 30  % Both cell amd material boundaries
+
+% --- Fission rate / thermal flux plot
+
+mesh    3 996 904
+mesh    1 996 904
+
+% --- Interface temperature plot
+
+mesh 10 3 996 904
+mesh 10 1 996 904
+% --- Score buffering (0 = private, 1 = shared)
+
+set shbuf 0
+
+% --- Optimization mode (use 1, 2 or 4):
+
+set opti 4
+
+% --- Reproducibility off (set value to 1 and define seed to set on):
+
+set repro 0
+% set seed 4392750125
+
+% --- Uniform fission source:
+
+set ufs 3 1.0 17 17 17
+
+% --- Thermal flux / fission rate mesh:
+plot 2 996 904
+plot 3 996 996
+
+mesh 2 996 904
+mesh 3 996 996
+
+% --- Distribution of collision points:
+
+mesh 5 4 2 996 904
+mesh 5 4 3 996 996
+
+% --- Distribution of collided weight:
+
+mesh 6 4 2 996 904
+mesh 6 4 3 996 996
+
+% --- Core power distribution (6.4 million tallies):
+
+set cpd 3 100 -183.0 183.0
+
+% --- Detectors:
+
+det 1 dx 0.630 1.890 1 dy -0.630 0.630 1 dz -183.0 183.0 100 dm fuel dr -6 void
+det 2 dx 90.09 91.35 1 dy -0.630 0.630 1 dz -183.0 183.0 100 dm fuel dr -6 void
+det 3 dx 180.8 182.1 1 dy -0.630 0.630 1 dz -183.0 183.0 100 dm fuel dr -6 void
+
+% ------------------------------------------------------------------------------
+
