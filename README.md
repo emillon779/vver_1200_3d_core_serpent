@@ -1,6 +1,6 @@
 # vver_1200_3d_core_serpent
  
-# vver1200_core_2d_serpent
+# vver1200_core_3d_serpent
 # VVER-1200 Assembly Comparison
 
 This README describes the comparison of VVER-1200 nuclear reactor assembly simulations using Serpent and OpenMC.
