@@ -10,7 +10,7 @@ This README describes the comparison of VVER-1200 nuclear reactor assembly simul
 We conducted a comparison of the VVER-1200 assembly using two neutron transport codes: Serpent and OpenMC. The aim was to evaluate the consistency and performance of both tools in simulating the reactor assembly.
 ## Keywords
 
-VVER-1200, Serpent, OpenMC, Nuclear Reactor Simulation, Monte Carlo Method, Reactor Assembly Comparison
+VVER-1200, Serpent,VVER-1200 Core 3D Model ,Nuclear Reactor Simulation, Monte Carlo Method, Reactor Assembly Comparison
 ## Simulation Tools
 
 - **Serpent**: A continuous-energy Monte Carlo reactor physics burnup calculation code. More information can be found on the [Serpent website](http://serpent.vtt.fi/).
