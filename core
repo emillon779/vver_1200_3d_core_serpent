@@ -6,12 +6,7 @@ cell cSS2 x water              sLowerTop -sUpperBot
 cell cSS3 x ssteel             sUpperBot -sUpperTop
 cell cSS4 x water              sUpperTop
 % --- Pin lattice definition, name of the lattice "core"
-%     Lattice type 1 (square lattice)
-%     Lattice centered at 0.0 0.0
-%     29 x 29 lattice elements
-%     Lattice pitch 1.80 cm
-%     We'll utilize our knowledge of the 1/8 symmetry so that
-%     we'll only have to type in 1/8th of the core
+
 surf  1 pz 0.0
 
 lat 110  2  0.0 0.0 23 23 1.2750
