@@ -1,0 +1,86 @@
+% --- 3D universe for lattice positions without a hole
+
+cell cSS0 x water                        -sLowerBot
+cell cSS1 x ssteel             sLowerBot -sLowerTop
+cell cSS2 x water              sLowerTop -sUpperBot
+cell cSS3 x ssteel             sUpperBot -sUpperTop
+cell cSS4 x water              sUpperTop
+% --- Pin lattice definition, name of the lattice "core"
+%     Lattice type 1 (square lattice)
+%     Lattice centered at 0.0 0.0
+%     29 x 29 lattice elements
+%     Lattice pitch 1.80 cm
+%     We'll utilize our knowledge of the 1/8 symmetry so that
+%     we'll only have to type in 1/8th of the core
+surf  1 pz 0.0
+
+lat 110  2  0.0 0.0 23 23 1.2750
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+ _ _ _ _ _ _ _ _ _ _ _ F F F F F F F F F F F _
+  _ _ _ _ _ _ _ _ _ _ F F F F F F F F F F F F _  
+   _ _ _ _ _ _ _ _ _ F F F F F F F F F F F F F _ 
+    _ _ _ _ _ _ _ _ F F F F F F F F F F F F F F _ 
+     _ _ _ _ _ _ _ F F F F F F F c F F F F F F F _
+      _ _ _ _ _ _ F F F F F c F F F F c F F F F F _
+       _ _ _ _ _ F F F F F F F F F F F F F F F F F _
+        _ _ _ _ F F F F c F F F c F F F F c F F F F _
+         _ _ _ F F F F F F F F F F F c F F F F F F F _ 
+          _ _ F F F F F F F c F F F F F F F F F F F F _
+           _ F F F F F c F F F F c F F F F c F F F F F _
+            _ F F F F F F F F F F F F c F F F F F F F _ _
+             _ F F F F F F F c F F F F F F F F F F F _ _ _ 
+              _ F F F F c F F F F c F F F c F F F F _ _ _ _
+               _ F F F F F F F F F F F F F F F F F _ _ _ _ _
+                _ F F F F F c F F F F c F F F F F _ _ _ _ _ _
+                 _ F F F F F F F c F F F F F F F _ _ _ _ _ _ _ 
+                  _ F F F F F F F F F F F F F F _ _ _ _ _ _ _ _
+                   _ F F F F F F F F F F F F F _ _ _ _ _ _ _ _ _
+                    _ F F F F F F F F F F F F _ _ _ _ _ _ _ _ _ _
+                     _ F F F F F F F F F F F _ _ _ _ _ _ _ _ _ _ _
+                      _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  
+
+
+% --- assembly data:
+
+surf  1000  inf
+
+cell 110  4  fill 110   -1000
+
+% --- Radial reflector:
+
+cell 51  5  lower_radial_refl  -1
+cell 52  5  upper_radial_refl   1
+
+% --- Core lattice:
+
+lat core  3  0.0 0.0 23 23  23.51
+
+5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+ 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+  5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+   5 5 5 5 5 5 5 5 5 5 5 5 5 5 f9 f9 f9 5 5 5 5 5 5
+    5 5 5 5 5 5 5 5 5 5 5 f9 4 4 4 4 4 4 f9 5 5 5 5 
+     5 5 5 5 5 5 5 5 5 5 4 4 4 4 4 4 4 4 4 5 5 5 5 
+      5 5 5 5 5 5 5 5 f9 4 4 4 4 4 4 4 4 4 4 f9 5 5 5 
+       5 5 5 5 5 5 5 f9 4 4 4 4 4 4 4 4 4 4 4 f9 5 5 5 
+        5 5 5 5 5 5 f9 4 4 4 4 4 4 4 4 4 4 4 4 f9 5 5 5 
+         5 5 5 5 5 5 4 4 4 4 4 4 4 4 4 4 4 4 4 5 5 5 5
+          5 5 5 5 5 4 4 4 4 4 4 4 4 4 4 4 4 4 4 5 5 5 5
+           5 5 5 5 f9 4 4 4 4 4 4 4 4 4 4 4 4 4 f9 5 5 5 5
+            5 5 5 5 4 4 4 4 4 4 4 4 4 4 4 4 4 4 5 5 5 5 5
+             5 5 5 5 4 4 4 4 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5
+              5 5 5 f9 4 4 4 4 4 4 4 4 4 4 4 4 f9 5 5 5 5 5 5
+               5 5 5 f9 4 4 4 4 4 4 4 4 4 4 4 f9 5 5 5 5 5 5 5
+                5 5 5 f9 4 4 4 4 4 4 4 4 4 4 f9 5 5 5 5 5 5 5 5
+                 5 5 5 5 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5
+                  5 5 5 5 f9 4 4 4 4 4 4 f9 5 5 5 5 5 5 5 5 5 5 5
+                   5 5 5 5 5 5 f9 f9 f9 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+                    5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                     5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                      5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                      
+surf 211 sqc 0.0 0.0 182.07 
+
+cell 211 210 fill core          -211
+cell 212 210 lower_radial_refl  211 -1
+cell 213 210 upper_radial_refl  211  1

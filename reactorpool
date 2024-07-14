@@ -1,0 +1,31 @@
+% --- Core geometry:
+
+surf 11  pz -229.0
+surf 12  pz -199.0
+surf 13  pz -193.0
+surf 14  pz -183.0
+surf 15  pz  183.0
+surf 16  pz  203.0
+surf 17  pz  215.0
+surf 18  pz  223.0
+
+surf 20 cyl 0.0 0.0 187.6
+surf 21 cyl 0.0 0.0 209.0
+surf 22 cyl 0.0 0.0 229.0
+surf 23 cyl 0.0 0.0 249.0
+
+cell 1   0  bottom_plate      -22      11 -12
+cell 2   0  bottom_nozzle     -20      12 -13
+cell 3   0  bottom_fa         -20      13 -14
+cell 4   0  lower_radial_refl  20 -21  12 -14
+cell 5   0  fill 210          -21      14 -15
+cell 6   0  upper_radial_refl  20 -21  15 -17  
+cell 7   0  top_fa            -20      15 -16
+cell 8   0  top_nozzle        -20      16 -17
+cell 9   0  cold_water         21 -22  12 -17
+cell 10  0  top_plate         -22      17 -18
+cell 11  0  vessel             22 -23  11 -18
+
+cell 666 0 outside             23      11 -18
+cell 667 0 outside            -11
+cell 668 0 outside             18

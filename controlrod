@@ -1,0 +1,17 @@
+/***** Vertical layers (cells) for control rods ****/
+
+% --- 3D universe for control rods
+%     These cells are part of an universe "CRuni"
+
+cell cCR0 CRuni water  -sLowerBot
+cell cCR1 CRuni ssteel  sLowerBot  -sFuelBot
+cell cCR2 CRuni B4C     sFuelBot   -sFuelTop
+cell cCR3 CRuni ssteel  sFuelTop
+% --- Transformation for the control rod movement
+%     The values given are transformations in (x, y, z)
+%     Transformation of  0.0 means fully inserted.
+%     Transformation of 25.0 means 50 %  inserted.
+%     Transformation of 50.0 means fully withdrawn.
+%     e.g.
+
+trans u CRuni 0.0 0.0 25.0

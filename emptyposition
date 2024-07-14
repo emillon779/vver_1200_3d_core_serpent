@@ -1,0 +1,18 @@
+% --- Pin definitions needed for empty positions
+
+% --- Empty lattice position at grid
+
+pin pHoleInSteel
+water      0.4850
+ssteel
+
+/***** Vertical layers (cells) for empty position ****/
+
+% --- 3D universe for empty lattice positions
+%     These cells are part of an universe "_"
+
+cell cEP0 _ water                        -sLowerBot
+cell cEP1 _ fill pHoleInSteel  sLowerBot -sLowerTop
+cell cEP2 _ water              sLowerTop -sUpperBot
+cell cEP3 _ fill pHoleInSteel  sUpperBot -sUpperTop
+cell cEP4 _ water              sUpperTop

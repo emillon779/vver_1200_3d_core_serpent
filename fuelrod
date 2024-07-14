@@ -1,0 +1,69 @@
+% --- Pin definitions needed for fuel rods
+
+% --- Fuel part
+
+pin pFuel
+fuel       0.3975
+void       0.4125
+Zircaloy4  0.4750
+water
+
+% --- End plug in water
+
+pin pPlug
+Zircaloy4  0.4750
+water
+
+% --- End plug in support grid
+
+pin pPlugInSteel
+Zircaloy4  0.4750
+water      0.4850
+ssteel
+
+
+
+
+/***** Axial surfaces for fuel rods ***********/
+
+% --- Bottom of the lower plate and fuel rods
+
+surf sLowerBot pz -199.0
+
+% --- Top of the lower plate
+
+surf sLowerTop pz -193.0
+
+% --- Bottom of the active fuel
+
+surf sFuelBot  pz -183.0
+
+% --- Top of the active fuel
+
+surf sFuelTop  pz 183.0
+
+% --- Bottom of the upper grid plate
+
+surf sUpperBot pz 203.0
+
+% --- Top of the upper grid plate
+
+surf sUpperTop pz 215.0
+
+% --- Top of the fuel rods
+
+surf sRodTop   pz 223.0
+
+/***** Vertical layers (cells) for fuel rod ****/
+
+% --- 3D universe for fuel pins
+%     These cells are part of an universe "F"
+
+cell cFP0 F water                        -sLowerBot
+cell cFP1 F fill pPlugInSteel  sLowerBot -sLowerTop
+cell cFP2 F fill pPlug         sLowerTop -sFuelBot
+cell cFP3 F fill pFuel         sFuelBot  -sFuelTop
+cell cFP4 F fill pPlug         sFuelTop  -sUpperBot
+cell cFP5 F fill pPlugInSteel  sUpperBot -sUpperTop
+cell cFP6 F fill pPlug         sUpperTop -sRodTop
+cell cFP7 F water              sRodTop            
